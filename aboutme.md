@@ -12,8 +12,12 @@ Now, I focus on offenisve security of web and mobile application and fuzzing of 
 ### Skills
 
 {: .box-note}
-Web and Mobile exploitation
-Cloud Assessments
-Memmory Corruption bug hunting
-Python Coding
-Muay Thai (fighting skills)
+Web and Mobile exploitation,
+
+Cloud Assessments,
+
+Memmory Corruption bug hunting,
+
+Python Coding,
+
+Muay Thai (fighting skills).
