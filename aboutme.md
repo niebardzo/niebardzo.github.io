@@ -17,3 +17,6 @@ Now, I focus on offenisve security of web and mobile application and fuzzing of 
 - Memory Corruption Bug Hunting,
 - Python Coding,
 - Muay Thai.
+
+### CVEs
+- CVE-2020-11011
