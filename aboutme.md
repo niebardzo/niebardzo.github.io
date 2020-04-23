@@ -19,4 +19,5 @@ Now, I focus on offenisve security of web and mobile application and fuzzing of 
 - Muay Thai.
 
 ### CVEs
-- CVE-2020-11011
+
+CVE-2020-11011
