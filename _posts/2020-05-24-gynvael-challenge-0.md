@@ -7,12 +7,12 @@ tags: [ctf, hacking, challenges]
 comments: true
 ---
 
-Over the weekend I have decided to play with Gynvael's web security challenges. The post prestes the write-up of the challenge 0.
+Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 0.
 The challenge is located under the following URL:
 http://challenges.gynvael.stream:5000/
 
 The challenge is simple FLASK application running as the Werkzaug - flask development web server.
-After the quick code analysis we see that to complete the challenge we must get the response from the /secret endpoint
+After the quick code analysis, we see that to complete the challenge we must get the response from the /secret endpoint
 
 ```
 @app.route('/secret')
@@ -26,9 +26,9 @@ def secret():
   return f"GOOD WORK! Flag is {FLAG}"
 ```
 
-To get the flag we would have to bypass to conditional checks, first requirement is that the request must come from the localhost. The second requirement is that the HTTP request must have the X-Secret HTTP header with the value of YEAH.
+To get the flag we would have to bypass to conditional checks, the first requirement is that the request must come from the localhost. The second requirement is that the HTTP request must have the X-Secret HTTP header with the value of YEAH.
 
-So, the get the flag, we would have to exploit the Server Side Request Forgery on the same server, to be able to send HTTP request to loopback interface. Then, we would have to find the HTTP Header Injection sometimes called CRLF injection to be able to send the custom X-Secret HTTP header.
+So, the get the flag, we would have to exploit the Server Side Request Forgery on the same server, to be able to send an HTTP request to the loopback interface. Then, we would have to find the HTTP Header Injection sometimes called CRLF injection to be able to send the custom X-Secret HTTP header.
 
 Luckly for us the web server exposes other endpoint /fetch:
 ```
@@ -60,9 +60,9 @@ Analyzing the parameters that the endpoint expects - url and lang, we can say th
   ])
 ```
 
-As we can see it is a simple string concatenation, so we would be able to provide the end of line characters and inject arbitrary HTTP Header to the request.
+As we can see it is simple string concatenation, so we would be able to provide the end of line characters and inject arbitrary HTTP Header to the request.
 
-Let's go the exploitation, I would use the Burp Sutie Community Edition for that. We first try to send the request to http://localhost:5000/secret without changing the language parameter.
+Let's go the exploitation, I would use the Burp Suite Community Edition for that. We first try to send the request to http://localhost:5000/secret without changing the language parameter.
 
 ![gyn_0](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn0_1.png)
 
