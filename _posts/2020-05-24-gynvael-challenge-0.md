@@ -64,12 +64,12 @@ As we can see it is a simple string concatenation, so we would be able to provid
 
 Let's go the exploitation, I would use the Burp Sutie Community Edition for that. We first try to send the request to http://localhost:5000/secret without changing the language parameter.
 
-![gyn_0](../../master/img/2020-05-24-gyn0_1.png)
+![gyn_0](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn0_1.png)
 
 
 With that request, we would hit the second condition as the HTTP Header X-Secret is not set. Then, I would use Intruder to try different payloads for injecting the CRLF.
 
-![gyn_0](../../master/img/2020-05-24-gyn0_2.png)
+![gyn_0](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn0_2.png)
 
 I have prepared the following list of payloads to try which has some of the common encoded characters to do CRLF injection.
 ```
@@ -92,14 +92,14 @@ I have prepared the following list of payloads to try which has some of the comm
 %u000aX-Secret:%20YEAH
 ```
 
-![gyn_0](../../master/img/2020-05-24-gyn0_3.png)
+![gyn_0](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn0_3.png)
 
 Additionally, we go the Options tab and set the Grep-Match to "GOOD WORK!" as this shows up when the flag is returned.
 
-![gyn_0](../../master/img/2020-05-24-gyn0_4.png)
+![gyn_0](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn0_4.png)
 
 Then, we click "Start Attack", and see the results.
 
-![gyn_0](../../master/img/2020-05-24-gyn0_5.png)
+![gyn_0](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn0_5.png)
 
 As we can see few of the Intruder's requests returned the flag. We can now view the response with the flag.
