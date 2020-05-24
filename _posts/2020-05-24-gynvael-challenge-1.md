@@ -7,7 +7,7 @@ tags: [ctf, hacking, challenges]
 comments: true
 ---
 
-Over the weekend I have decided to play with Gynvael's web security challenges. The post prestes the write-up of the challenge 1.
+Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 1.
 The challenge is located under the following URL:
 http://challenges.gynvael.stream:5001/
 
@@ -34,9 +34,9 @@ app.get('/', (req, res) => {
 
 ```
 
-Again, there are two checks which must be bypassed. From the code analysis, we know that to get the flag, we would have to make the secret parameter with the length shorter or equal to 5. Also the second loose comparsion (!=) to the "GIVEmeTHEflagNOW" must retrun false.
+Again, there are two checks which must be bypassed. From the code analysis, we know that to get the flag, we would have to make the secret parameter with the length shorter or equal to 5. Also the second loose comparison (!=) to the "GIVEmeTHEflagNOW" must return false.
 
-At this stage we know, that sending the string GIVEmeTHEflagNOW as the secret parameter would hit the second condition. But luckly, we know the vulnerability called HTTP parameter polution. It is mostly used to bypass WAFs where the frontend server proceesses parameters different than the backend server. Let's add addtional console.log to display the secret in our local instance and try to send the secret parameter twice.
+At this stage we know, that sending the string GIVEmeTHEflagNOW as the secret parameter would hit the second condition. But luckily, we know the vulnerability called HTTP parameter pollution. It is mostly used to bypass WAFs where the frontend server processes parameters different than the backend server. Let's add additional console.log to display the secret in our local instance and try to send the secret parameter twice.
 
 ![gyn_1](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn1_1.png)
 
@@ -48,25 +48,22 @@ As we can see nodejs interpreted the parameters as the array.
 
 ![gyn_1](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn1_3.png)
 
-Unfortunetly, during the loose comparison the Javascript Object - Array would be converted to its primitive - string. We can see results of that by doing the join() on array object.
+Unfortunately, during the loose comparison the Javascript Object - Array would be converted to its primitive - string. We can see results of that by doing the join() on array objects.
 ![gyn_1](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn1_4.png)
 
-Which builds the string with comma (,).
+Which builds the string with a comma (,).
 
 ![gyn_1](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn1_5.png)
 
-With that method we would not be able to build "GIVEmeTHEflagNOW" string as there always will be comma in that string. For the parameter pollution, we may try old PHP techniqu by adding the array[] to the name of the parameters.
+With that method we would not be able to build "GIVEmeTHEflagNOW" string as there always will be a comma in that string. For parameter pollution, we may try the old PHP technique by adding the array[] to the name of the parameters.
 
 ![gyn_1](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn1_6.png)
 
-Luckly, it is interpreted as one element array Object, so during the conversion to primitive, it would be interpreted as valid string. 
+Luckily, it is interpreted as one element array Object, so during the conversion to primitive, it would be interpreted as a valid string. 
 
 ![gyn_1](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn1_7.png)
 
 Now, we can send our secret code to get the flag.
 
 ![gyn_1](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn1_8.png)
-
-
-
 
