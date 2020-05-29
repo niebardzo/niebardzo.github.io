@@ -12,7 +12,6 @@ The challenge is located under the following URL:
 http://challenges.gynvael.stream:5002/
 
 The code returned is the simple Express.js application. We can copy the code and run it locally, so we would be able to debug.
-The following code implements only the / endpoint and expects the secret parameter.
 
 ```
 app.get('/', (req, res) => {
@@ -41,7 +40,7 @@ app.get('/', (req, res) => {
 
 ```
 
-Again, there are two checks which must be bypassed. From the code analysis, we know that to get the flag, we would have to make the secret parameter with the length longer than 800 and in the second condition, the string concatenation must trow the exception to retrive the flag.
+Again, there are two checks which must be bypassed. From the code analysis, we know that to get the flag, we would have to make the secret parameter with the length longer than 800 and in the second condition, the string concatenation must trow the exception to retrieve the flag.
 
 At this moment, we should do our lesson and refer to the Express documentation:
 https://expressjs.com/en/api.html#req.query
