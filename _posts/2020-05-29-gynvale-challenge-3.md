@@ -1,62 +1,41 @@
 ---
 layout: post
-title: Gynvael's web security challenge - part 2.
+title: Gynvael's web security challenge - part 3.
 subtitle: Quick hacking at the weekend.
 gh-repo: daattali/beautiful-jekyll
 tags: [ctf, hacking, challenges]
 comments: true
 ---
 
-Over the weekend I have decided to play with Gynvael's web security challenges. The post prestes the write-up of the challenge 1.
+Over the weekend I have decided to play with Gynvael's web security challenges. The post prestes the write-up of the challenge 3.
 The challenge is located under the following URL:
-http://challenges.gynvael.stream:5002/
+http://challenges.gynvael.stream:5003
 
 The code returned is the simple Express.js application. We can copy the code and run it locally, so we would be able to debug.
-The following code implements only the / endpoint and expects the secret parameter.
 
 ```
-app.get('/', (req, res) => {
+app.get('/truecolors/:color', (req, res) => {
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/plain;charset=utf-8')
 
-  if (req.query.X.length > 800) {
-    const s = JSON.stringify(req.query.X)
-    if (s.length > 100) {
-      res.end("Go away.")
-      return
-    }
+  const color = ('color' in req.params) ? req.params.color : '???'
 
-    try {
-      const k = '<' + req.query.X + '>'
-      res.end("Close, but no cigar.")
-    } catch {
-      res.end(FLAG)
-    }
-
+  if (color === 'red' || color === 'green' || color === 'blue') {
+    res.end('Yes! A true color!')
   } else {
-    res.end("No way.")
-    return
+    res.end('Hmm? No.')
   }
 })
 
+
 ```
 
-Again, there are two checks which must be bypassed. From the code analysis, we know that to get the flag, we would have to make the secret parameter with the length longer than 800 and in the second condition the string concatenation must trow the exception to retrive the flag.
+This time the code uses req.params instead of req.query and the task is to cause the exception to read the path of the script. As we learned by the previous challenges, we should jump straight to the documentation:
+https://expressjs.com/en/api.html#req.params
 
-At this moment, we should do our lesson and refer to the Express documentation:
-https://expressjs.com/en/api.html#req.query
+We can see the Note for devs:
+{: .box-note} Note: Express automatically decodes the values in req.params (using decodeURIComponent).
 
-The text in the box gives us the exact solution of the challenge.
+So, the task is to crash during the URI decoding. To do that, it is enough to pass the % (percantage sign) to the params. As the % is used for URI encoding without value to be decoded after it, it would cause the express to crash.
 
-![gyn_2](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-29-gyn2_1.png)
-
-During the string concatenation X object would be converted to string to perform the concatenation. As we would overwrite the toSting method the exception would be raised and we will get the flag. Also, the Express say that the user controls whole the object, so to bypass the first condition we can control the lenght parameter as well.
-
-![gyn_2](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-29-gyn2_2.png)
-
-
-Then, we overwrite the toString() method by setting there anything to cause the exception.
-
-![gyn_2](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-29-gyn2_3.png)
-
-Is Express.js drunk?
+![gyn_3](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-29-gyn3_1.png)
