@@ -7,7 +7,7 @@ tags: [ctf, hacking, challenges]
 comments: true
 ---
 
-Over the weekend I have decided to play with Gynvael's web security challenges. The post prestes the write-up of the challenge 3.
+Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 3.
 The challenge is located under the following URL:
 http://challenges.gynvael.stream:5003
 
@@ -36,6 +36,6 @@ https://expressjs.com/en/api.html#req.params
 We can see the Note for devs:
 {: .box-note} Note: Express automatically decodes the values in req.params (using decodeURIComponent).
 
-So, the task is to crash during the URI decoding. To do that, it is enough to pass the % (percantage sign) to the params. As the % is used for URI encoding without value to be decoded after it, it would cause the express to crash.
+So, the task is to crash during the URI decoding. To do that, it is enough to pass the % (percentage sign) to the params. As the % is used for URI encoding without value to be decoded after it, it would cause the express to crash.
 
 ![gyn_3](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-29-gyn3_1.png)
