@@ -34,7 +34,9 @@ This time the code uses req.params instead of req.query and the task is to cause
 https://expressjs.com/en/api.html#req.params
 
 We can see the Note for devs:
-{: .box-note} Note: Express automatically decodes the values in req.params (using decodeURIComponent).
+
+{: .box-note}
+**Note:** Express automatically decodes the values in req.params (using decodeURIComponent).
 
 So, the task is to crash during the URI decoding. To do that, it is enough to pass the % (percentage sign) to the params. As the % is used for URI encoding without value to be decoded after it, it would cause the express to crash.
 
