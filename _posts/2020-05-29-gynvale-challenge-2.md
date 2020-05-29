@@ -7,7 +7,7 @@ tags: [ctf, hacking, challenges]
 comments: true
 ---
 
-Over the weekend I have decided to play with Gynvael's web security challenges. The post prestes the write-up of the challenge 1.
+Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 1.
 The challenge is located under the following URL:
 http://challenges.gynvael.stream:5002/
 
@@ -41,16 +41,16 @@ app.get('/', (req, res) => {
 
 ```
 
-Again, there are two checks which must be bypassed. From the code analysis, we know that to get the flag, we would have to make the secret parameter with the length longer than 800 and in the second condition the string concatenation must trow the exception to retrive the flag.
+Again, there are two checks which must be bypassed. From the code analysis, we know that to get the flag, we would have to make the secret parameter with the length longer than 800 and in the second condition, the string concatenation must trow the exception to retrive the flag.
 
 At this moment, we should do our lesson and refer to the Express documentation:
 https://expressjs.com/en/api.html#req.query
 
-The text in the box gives us the exact solution of the challenge.
+The text in the box gives us the exact solution to the challenge.
 
 ![gyn_2](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn2_1.png)
 
-During the string concatenation X object would be converted to string to perform the concatenation. As we would overwrite the toSting method the exception would be raised and we will get the flag. Also, the Express say that the user controls whole the object, so to bypass the first condition we can control the lenght parameter as well.
+During the string concatenation, X object would be converted to a string to perform the concatenation. As we would overwrite the toString method the exception would be raised and we will get the flag. Also, the Express says that the user controls whole the object, so to bypass the first condition we can control the length parameter as well.
 
 ![gyn_2](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-05-24-gyn2_2.png)
 
