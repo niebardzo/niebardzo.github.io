@@ -7,7 +7,7 @@ tags: [ctf, hacking, challenges]
 comments: true
 ---
 
-Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 1.
+Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 2.
 The challenge is located under the following URL:
 http://challenges.gynvael.stream:5002/
 
