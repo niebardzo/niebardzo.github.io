@@ -12,7 +12,6 @@ The challenge is located under the following URL:
 http://challenges.gynvael.stream:5002/
 
 The code returned is the simple Express.js application. We can copy the code and run it locally, so we would be able to debug.
-The following code implements only the / endpoint and expects the secret parameter.
 
 ```
 app.get('/', (req, res) => {
