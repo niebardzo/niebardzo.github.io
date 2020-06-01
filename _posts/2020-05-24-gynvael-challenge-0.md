@@ -9,7 +9,7 @@ comments: true
 
 Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 0.
 The challenge is located under the following URL:
-http://challenges.gynvael.stream:5000/
+[http://challenges.gynvael.stream:5000/](http://challenges.gynvael.stream:5000/)
 
 The challenge is simple FLASK application running as the Werkzaug - flask development web server.
 After the quick code analysis, we see that to complete the challenge we must get the response from the /secret endpoint
