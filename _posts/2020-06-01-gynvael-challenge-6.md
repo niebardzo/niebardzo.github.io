@@ -50,11 +50,11 @@ const checkSecret = (secret) => {
 Also, let's add the console.log to see how the left side of the comparison would look like based on the input.
 ![gyn_6](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-06-01-gyn6_1.png)
 
-![gyn_6](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-06-01-gyn6_1.png)
+![gyn_6](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-06-01-gyn6_2.png)
 
 From the first try we can assume that on every input in secret1 we would get the same value on the left side of comparison **<undefined>**
 
-![gyn_6](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-06-01-gyn6_1.png)
+![gyn_6](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-06-01-gyn6_3.png)
 
 It is because the function checkSecret() has broken EcmaScript6 syntax, which the interpreter tries to fix by adding the semicolon at the end of the return.
 ```
