@@ -53,7 +53,7 @@ app.use(express.text({
 ```
 
 As we have already learned, Gynvael prepares his challenges based on the notes/warnings to the developers in the documentation. The middleware uses the express.text() function, let's see what documentation says about that function.
-https://expressjs.com/en/api.html#express.text
+[https://expressjs.com/en/api.html#express.text](https://expressjs.com/en/api.html#express.text)
 
 This time we have got the following note:
 
@@ -84,7 +84,7 @@ In the file that implements read() function: **node_modules/body-parser/lib/read
 
 Inline 68 we find that the encoding is checked using the iconv library, which is used by Express for encoding and decoding.
 Iconv is the popular GNU project which converts one encoding to another and it supports multiple encodings. I have found the whole list here:
-https://gist.github.com/hakre/4188459
+[https://gist.github.com/hakre/4188459](https://gist.github.com/hakre/4188459)
 
 At this point, we may probably use any of those encodings to send our payload. I have chosen the UTF-16. With the usage of Burp Suite and the Hackvertor, we send our payload utf-16 encoded.
 
