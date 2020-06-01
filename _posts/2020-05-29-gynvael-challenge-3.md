@@ -9,7 +9,7 @@ comments: true
 
 Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 3.
 The challenge is located under the following URL:
-http://challenges.gynvael.stream:5003
+[http://challenges.gynvael.stream:5003](http://challenges.gynvael.stream:5003)
 
 The code returned is the simple Express.js application. We can copy the code and run it locally, so we would be able to debug.
 
@@ -31,7 +31,7 @@ app.get('/truecolors/:color', (req, res) => {
 ```
 
 This time the code uses req.params instead of req.query and the task is to cause the exception to read the path of the script. As we learned by the previous challenges, we should jump straight to the documentation:
-https://expressjs.com/en/api.html#req.params
+[https://expressjs.com/en/api.html#req.params](https://expressjs.com/en/api.html#req.params)
 
 We can see the Note for devs:
 
