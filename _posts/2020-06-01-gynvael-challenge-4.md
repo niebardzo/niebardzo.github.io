@@ -86,6 +86,6 @@ Inline 68 we find that the encoding is checked using the iconv library, which is
 Iconv is the popular GNU project which converts one encoding to another and it supports multiple encodings. I have found the whole list here:
 https://gist.github.com/hakre/4188459
 
-At this point, we may probably use any of those encodings to send our payload. I have chosen the UTF-16. With the usage of Burp Suite and the Hackvester, we send our payload utf-16 encoded.
+At this point, we may probably use any of those encodings to send our payload. I have chosen the UTF-16. With the usage of Burp Suite and the Hackvertor, we send our payload utf-16 encoded.
 
 ![gyn_4](https://github.com/niebardzo/niebardzo.github.io/raw/master/img/2020-06-01-gyn4_5.png)
