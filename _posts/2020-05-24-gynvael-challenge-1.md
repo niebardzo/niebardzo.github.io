@@ -9,7 +9,7 @@ comments: true
 
 Over the weekend I have decided to play with Gynvael's web security challenges. The post presents the write-up of challenge 1.
 The challenge is located under the following URL:
-http://challenges.gynvael.stream:5001/
+[http://challenges.gynvael.stream:5001/](http://challenges.gynvael.stream:5001/)
 
 The code returned is the simple Express.js application. We can copy the code and run it locally, so we would be able to debug.
 The following code implements only the / endpoint and expects the secret parameter.
