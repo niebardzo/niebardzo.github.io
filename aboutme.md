@@ -3,13 +3,16 @@ layout: page
 title: About me
 ---
 
-### Skills
+My name is Patryk Bogusz. I started this blog to have my place to publish stuff in the WWW. The posts are mainly about the web application security or other of my interests. Enjoy reading.
 
-- Web Exploitation,
-- Cloud Assessments,
+
+### Things I enjoy doing
+
+- Web Application Security
+- Cloud Security Assessments,
 - Python Coding,
 - Muay Thai.
 
-### CVEs
+### CVEs I have found
 
 CVE-2020-11011
