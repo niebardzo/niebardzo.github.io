@@ -11,7 +11,7 @@ At the end of the 2020, I took the Advanced Web Application Exploitation (AWAE) 
 
 ## Context
 
-At the point when I started the AWAE course, I was working as the Web Application and Cloud Penetration Tester in a big financial company. As a part of my training budget, I have been bought 90 days of AWAE lab time. Compare with PWK/OSCP where I have rooted 35 machines (which was enough to the OSCP pass the exam on the first attempt), in AWAE I have been able to complete all learning materials with all extra miles in 90 days without rashing too much. If you pay for the course from your pocket, I recommend buying 60 days of AWAE lab time, especially when you have bug bounty/penetration testing experience and you can read other's people code.
+At the point when I started the AWAE course, I was working as the Web Application and Cloud Penetration Tester in a big financial company. As a part of my training budget, I have been bought 90 days of AWAE lab time. Compare with PWK/OSCP where I have rooted 35 machines (which was enough to pass the OSCP exam on the first attempt), in AWAE I have been able to complete all learning materials with all extra miles in 90 days without rashing too much. If you pay for the course from your pocket, I recommend buying 60 days of AWAE lab time, especially when you have bug bounty/penetration testing experience and you can read other's people code.
 
 ## AWAE Course
 
